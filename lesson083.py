@@ -34,3 +34,7 @@ class HEAP:
         if index > 0 and self.heap[index] > self.heap[parent_index]:
             self.heap[index], self.heap[parent_index] = self.heap[parent_index], self.heap[index]
             self.fix_up(parent_index)
+
+    # peek() return with the max item in O(1)
+    def get_max(self):
+        return self.heap[0]
