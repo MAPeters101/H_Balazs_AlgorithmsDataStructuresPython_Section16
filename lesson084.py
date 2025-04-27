@@ -78,7 +78,11 @@ class HEAP:
             self.heap[index], self.heap[largest_index] = self.heap[largest_index], self.heap[index]
             self.fix_down(largest_index)
 
+    def heap_sort(self):
 
+        for _ in range(self.heap_size):
+            max_item = self.poll()
+            print(max_item)
 
 
 
