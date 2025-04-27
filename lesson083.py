@@ -38,3 +38,24 @@ class HEAP:
     # peek() return with the max item in O(1)
     def get_max(self):
         return self.heap[0]
+
+    # Return the max and removes it as well
+    # Remove the root node of the heap
+    def poll(self):
+
+        max_item = self.get_max()
+
+        # Swap the root node with the last item and "heapify"
+        self.heap[0], self.heap[self.heap_size-1] = self.heap[self.heap_size-1], self.heap[0]
+        self.heap_size = self.heap_size - 1
+
+        # Make sure the heap is "heapify"
+        self.fix_down(0)
+
+        return max_item
+
+
+
+
+
+
