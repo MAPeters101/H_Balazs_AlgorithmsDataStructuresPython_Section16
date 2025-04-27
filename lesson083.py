@@ -54,6 +54,30 @@ class HEAP:
 
         return max_item
 
+    # Starting with the root node downwards until the heap properties are no longer
+    # violated - O(logN
+    def fix_down(self, index):
+
+        index_left = 2 * index + 1
+        index_right = 2 * index + 2
+
+        # in a max heap the parent is always greater than the children
+        largest_index = index
+
+        # Looking for the largest (parent or left node)
+        if index_left < self.heap_size and self.heap[index_left] > self.heap[index]:
+            largest_index = index_left
+
+        # If the right child is greater than the left child: largest is the right child
+        if index_right < self.heap_size and self.heap[index_right] > self.heap[largest_index]:
+            largest_index = index_right
+
+        # If the parent is larger than the children: it is a valid heap so we terminate the
+        # recursive function calls
+        if index != largest_index:
+            self.heap[index], self.heap[largest_index] = self.heap[largest_index], self.heap[index]
+            self.fix_down(largest_index)
+
 
 
 
