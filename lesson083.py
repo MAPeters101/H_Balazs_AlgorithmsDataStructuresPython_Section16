@@ -25,6 +25,12 @@ class HEAP:
     # Starting with the actual node we have inserted up to the root node
     # We have to compare the values whether to make swap operations
     # O(logN) running time complexity
-    def fix_up(self):
-        pass
+    def fix_up(self, index):
 
+        parent_index = (index-1)//2
+
+        # We consider all the items above till we hit the root node
+        # If heap property is violated then we swap the parent-child
+        if index > 0 and self.heap[index] > self.heap[parent_index]:
+            self.heap[index], self.heap[parent_index] = self.heap[parent_index], self.heap[index]
+            self.fix_up(parent_index)
