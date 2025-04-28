@@ -10,6 +10,7 @@ class Heap:
         # The underlying list data structure
         self.heap = [0]*CAPACITY
 
+    # O(logN)
     def insert(self, item):
 
         # When the heap is full
@@ -41,6 +42,7 @@ class Heap:
 
     # Return the max and removes it as well
     # Remove the root node of the heap
+    # O(logN) running time complexity
     def poll(self):
 
         max_item = self.get_max()
@@ -80,6 +82,8 @@ class Heap:
 
     def heap_sort(self):
 
+        # We consider N items - it takes O(logN) to get the max (pool function)
+        # N*O(logN) = O(NlogN)
         for _ in range(self.heap_size):
             max_item = self.poll()
             print(max_item)
