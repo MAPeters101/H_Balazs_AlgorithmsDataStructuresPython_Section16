@@ -2,7 +2,7 @@
 CAPACITY = 10
 
 # Maximum heap (root node will be the largest item)
-class HEAP:
+class Heap:
 
     def __init__(self):
         # This is the actual number of items in the data structure
@@ -85,4 +85,16 @@ class HEAP:
             print(max_item)
 
 
+if __name__ == '__main__':
 
+    heap = Heap()
+    heap.insert(13)
+    heap.insert(-2)
+    heap.insert(0)
+    heap.insert(8)
+    heap.insert(1)
+    heap.insert(-5)
+    heap.insert(99)
+
+    print(heap.heap)
+    heap.heap_sort()
